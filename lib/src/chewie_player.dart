@@ -153,6 +153,8 @@ class ChewieState extends State<Chewie> {
   Future<dynamic> _pushFullScreenWidget(BuildContext context) async {
     final TransitionRoute<void> route = PageRouteBuilder<void>(
       pageBuilder: _fullScreenRoutePageBuilder,
+      // This is to prevent the dispose of the previous screen to be called
+      opaque: false,
     );
 
     onEnterFullScreen();
